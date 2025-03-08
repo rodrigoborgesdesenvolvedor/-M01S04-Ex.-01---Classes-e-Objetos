@@ -30,10 +30,14 @@ class AreaVerde {
         return responsavel;
     }
 
+    public double calcularTamanhoEmHectares() {
+        return tamanho;
+    }
+
     public void exibirInformacoes() {
         System.out.println("Área Verde: " + nome);
         System.out.println("Localização: " + localizacao);
-        System.out.println("Tamanho: " + tamanho + " hectares");
+        System.out.println("Tamanho: " + calcularTamanhoEmHectares() + " hectares");
         System.out.println("Status de Conservação: " + statusConservacao);
         System.out.println("Responsável: " + responsavel);
     }
@@ -69,12 +73,17 @@ class MonitoramentoResiduos {
         return responsavelColeta;
     }
 
+    public double calcularResiduosPorMes() {
+        return quantidade / 30.0; // Considerando um mês com 30 dias
+    }
+
     public void exibirInformacoes() {
         System.out.println("Tipo de Resíduo: " + tipoResiduo);
         System.out.println("Quantidade: " + quantidade + " kg");
         System.out.println("Data da Coleta: " + dataColeta);
         System.out.println("Status da Coleta: " + statusColeta);
         System.out.println("Responsável pela Coleta: " + responsavelColeta);
+        System.out.println("Média de Resíduos por Dia: " + calcularResiduosPorMes() + " kg/dia");
     }
 }
 
