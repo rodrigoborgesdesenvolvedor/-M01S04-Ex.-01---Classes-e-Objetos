@@ -90,7 +90,7 @@ class MonitoramentoResiduos {
 // Classe principal para testar as implementações
 public class Main {
     public static void main(String[] args) {
-        // Criando uma área verde
+        // Criando uma área verde utilizando o construtor
         AreaVerde parque = new AreaVerde("Parque Zoobotânico", "Joinville - Centro", 15.2);
         parque.setStatusConservacao("Bem preservado");
         parque.setResponsavel("Prefeitura de Joinville");
@@ -98,7 +98,7 @@ public class Main {
 
         System.out.println();
 
-        // Criando um monitoramento de resíduos
+        // Criando um monitoramento de resíduos utilizando o construtor
         MonitoramentoResiduos monitoramento = new MonitoramentoResiduos("Plástico", 120, new Date());
         monitoramento.setStatusColeta("Coleta concluída");
         monitoramento.setResponsavelColeta("Empresa de Limpeza Urbana");
