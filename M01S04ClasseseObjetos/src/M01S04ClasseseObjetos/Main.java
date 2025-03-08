@@ -14,30 +14,50 @@ class AreaVerde {
         this.tamanho = tamanho;
     }
 
-    public void setStatusConservacao(String statusConservacao) {
-        this.statusConservacao = statusConservacao;
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getLocalizacao() {
+        return localizacao;
+    }
+
+    public void setLocalizacao(String localizacao) {
+        this.localizacao = localizacao;
+    }
+
+    public double getTamanho() {
+        return tamanho;
+    }
+
+    public void setTamanho(double tamanho) {
+        this.tamanho = tamanho;
     }
 
     public String getStatusConservacao() {
         return statusConservacao;
     }
 
-    public void setResponsavel(String responsavel) {
-        this.responsavel = responsavel;
+    public void setStatusConservacao(String statusConservacao) {
+        this.statusConservacao = statusConservacao;
     }
 
     public String getResponsavel() {
         return responsavel;
     }
 
-    public double calcularTamanhoEmHectares() {
-        return tamanho;
+    public void setResponsavel(String responsavel) {
+        this.responsavel = responsavel;
     }
 
     public void exibirInformacoes() {
         System.out.println("Área Verde: " + nome);
         System.out.println("Localização: " + localizacao);
-        System.out.println("Tamanho: " + calcularTamanhoEmHectares() + " hectares");
+        System.out.println("Tamanho: " + tamanho + " hectares");
         System.out.println("Status de Conservação: " + statusConservacao);
         System.out.println("Responsável: " + responsavel);
     }
@@ -57,24 +77,44 @@ class MonitoramentoResiduos {
         this.dataColeta = dataColeta;
     }
 
-    public void setStatusColeta(String statusColeta) {
-        this.statusColeta = statusColeta;
+    public String getTipoResiduo() {
+        return tipoResiduo;
+    }
+
+    public void setTipoResiduo(String tipoResiduo) {
+        this.tipoResiduo = tipoResiduo;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public Date getDataColeta() {
+        return dataColeta;
+    }
+
+    public void setDataColeta(Date dataColeta) {
+        this.dataColeta = dataColeta;
     }
 
     public String getStatusColeta() {
         return statusColeta;
     }
 
-    public void setResponsavelColeta(String responsavelColeta) {
-        this.responsavelColeta = responsavelColeta;
+    public void setStatusColeta(String statusColeta) {
+        this.statusColeta = statusColeta;
     }
 
     public String getResponsavelColeta() {
         return responsavelColeta;
     }
 
-    public double calcularResiduosPorMes() {
-        return quantidade / 30.0; // Considerando um mês com 30 dias
+    public void setResponsavelColeta(String responsavelColeta) {
+        this.responsavelColeta = responsavelColeta;
     }
 
     public void exibirInformacoes() {
@@ -83,7 +123,6 @@ class MonitoramentoResiduos {
         System.out.println("Data da Coleta: " + dataColeta);
         System.out.println("Status da Coleta: " + statusColeta);
         System.out.println("Responsável pela Coleta: " + responsavelColeta);
-        System.out.println("Média de Resíduos por Dia: " + calcularResiduosPorMes() + " kg/dia");
     }
 }
 
@@ -94,14 +133,23 @@ public class Main {
         AreaVerde parque = new AreaVerde("Parque Zoobotânico", "Joinville - Centro", 15.2);
         parque.setStatusConservacao("Bem preservado");
         parque.setResponsavel("Prefeitura de Joinville");
-        parque.exibirInformacoes();
 
+        // Modificando valores usando os métodos set
+        parque.setTamanho(16.5);
+        parque.setStatusConservacao("Ótimo estado");
+
+        parque.exibirInformacoes();
         System.out.println();
 
         // Criando um monitoramento de resíduos utilizando o construtor
         MonitoramentoResiduos monitoramento = new MonitoramentoResiduos("Plástico", 120, new Date());
         monitoramento.setStatusColeta("Coleta concluída");
         monitoramento.setResponsavelColeta("Empresa de Limpeza Urbana");
+
+        // Modificando valores usando os métodos set
+        monitoramento.setQuantidade(150);
+        monitoramento.setStatusColeta("Coleta pendente");
+
         monitoramento.exibirInformacoes();
     }
 }
