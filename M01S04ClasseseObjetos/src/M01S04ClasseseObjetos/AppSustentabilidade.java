@@ -1,4 +1,5 @@
 import java.util.Date;
+import java.util.Scanner;
 
 // Classe que representa uma área verde
 class AreaVerde {
@@ -126,30 +127,45 @@ class MonitoramentoResiduos {
     }
 }
 
-// Classe principal para testar as implementações
-public class Main {
+// Classe principal para testar as implementações e interagir com o usuário
+public class AppSustentabilidade {
     public static void main(String[] args) {
-        // Criando uma área verde utilizando o construtor
-        AreaVerde parque = new AreaVerde("Parque Zoobotânico", "Joinville - Centro", 15.2);
-        parque.setStatusConservacao("Bem preservado");
-        parque.setResponsavel("Prefeitura de Joinville");
+        Scanner scanner = new Scanner(System.in);
 
-        // Modificando valores usando os métodos set
-        parque.setTamanho(16.5);
-        parque.setStatusConservacao("Ótimo estado");
+        // Criando uma área verde
+        System.out.println("Digite o nome da área verde:");
+        String nomeArea = scanner.nextLine();
+        System.out.println("Digite a localização da área verde:");
+        String localizacaoArea = scanner.nextLine();
+        System.out.println("Digite o tamanho da área verde em hectares:");
+        double tamanhoArea = scanner.nextDouble();
+        scanner.nextLine(); // Consumir quebra de linha
 
+        AreaVerde parque = new AreaVerde(nomeArea, localizacaoArea, tamanhoArea);
+        System.out.println("Digite o status de conservação:");
+        parque.setStatusConservacao(scanner.nextLine());
+        System.out.println("Digite o responsável pela área:");
+        parque.setResponsavel(scanner.nextLine());
+
+        // Criando um monitoramento de resíduos
+        System.out.println("Digite o tipo de resíduo:");
+        String tipoResiduo = scanner.nextLine();
+        System.out.println("Digite a quantidade de resíduos em kg:");
+        int quantidadeResiduo = scanner.nextInt();
+        scanner.nextLine(); // Consumir quebra de linha
+
+        MonitoramentoResiduos monitoramento = new MonitoramentoResiduos(tipoResiduo, quantidadeResiduo, new Date());
+        System.out.println("Digite o status da coleta:");
+        monitoramento.setStatusColeta(scanner.nextLine());
+        System.out.println("Digite o responsável pela coleta:");
+        monitoramento.setResponsavelColeta(scanner.nextLine());
+
+        // Exibindo as informações coletadas
+        System.out.println("\nInformações da Área Verde:");
         parque.exibirInformacoes();
-        System.out.println();
-
-        // Criando um monitoramento de resíduos utilizando o construtor
-        MonitoramentoResiduos monitoramento = new MonitoramentoResiduos("Plástico", 120, new Date());
-        monitoramento.setStatusColeta("Coleta concluída");
-        monitoramento.setResponsavelColeta("Empresa de Limpeza Urbana");
-
-        // Modificando valores usando os métodos set
-        monitoramento.setQuantidade(150);
-        monitoramento.setStatusColeta("Coleta pendente");
-
+        System.out.println("\nInformações do Monitoramento de Resíduos:");
         monitoramento.exibirInformacoes();
+
+        scanner.close();
     }
 }
